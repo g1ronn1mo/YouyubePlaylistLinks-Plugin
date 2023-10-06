@@ -11,12 +11,12 @@ You need to obtain a YouTube Data API key first. Here's a step-by-step guide on 
 2. Sign in with your Google account or create a new one if you don't have one.
 
 ### Step 2: Create a New Project
-1. Click on the "Select a project" drop-down at the top right corner.
+1. Click on the "Select a project" drop-down at the top left corner.
 2. In the modal that appears, click on the "New Project" button at the top right.
 3. Give your project a name and click "Create."
 
 ### Step 3: Enable YouTube Data API v3
-1. In the left sidebar, click on "Navigation Menu" (hamburger icon) > "APIs & Services" > "Dashboard."
+1. In the left sidebar, click on "Navigation Menu" ( menue icon) > "APIs & Services" > "Dashboard."
 2. Click on "+ ENABLE APIS AND SERVICES" at the top center.
 3. In the search bar, type "YouTube Data API v3" and click on it.
 4. Click on the "Enable" button.

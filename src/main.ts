@@ -2,16 +2,19 @@ import {  Editor, MarkdownView, Notice, Plugin } from 'obsidian';
 import { SampleModal } from './modals/modal';
 import { SampleSettingTab } from './settings/settingsTab';
 
+
+
 // Remember to rename these classes and interfaces!
 
 interface Settings {
-	mySetting: string;
-}
+	youtubePlaylist: string;
+	apiKey: string;
+  }
 
 const DEFAULT_SETTINGS: Settings = {
-	mySetting: 'default'
-}
-
+	youtubePlaylist: '',
+	apiKey: ''
+  };
 export default class YouyubePlaylist extends Plugin {
 	settings: Settings;
 
