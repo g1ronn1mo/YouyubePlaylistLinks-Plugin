@@ -9,20 +9,21 @@ export class SampleSettingTab extends PluginSettingTab {
 		this.plugin = plugin;
 	}
 
-	display(): void {
-		const {containerEl} = this;
+	display(): void { 
+		const containerEl = this.containerEl;
 
 		containerEl.empty();
 
-		new Setting(containerEl)
-			.setName('Setting #1')
-			.setDesc('It\'s a secret')
-			.addText(text => text
-				.setPlaceholder('Enter Youtube playlist')
-				.setValue(this.plugin.settings.mySetting)
-				.onChange(async (value) => {
-					this.plugin.settings.mySetting = value;
-					await this.plugin.saveSettings();
-				}));
+		const setting = new Setting(containerEl);
+		setting.setName('YouyubePlaylist');
+		setting.setDesc('Enter the Youtube playlist link you want to embed');
+		setting.addText(text => {
+			text.setPlaceholder('Enter Youtube playlist');
+			text.setValue(this.plugin.settings.mySetting);
+			text.onChange(async (value) => {
+				this.plugin.settings.mySetting = value;
+				await this.plugin.saveSettings();
+		});
+		});
 	}
 }

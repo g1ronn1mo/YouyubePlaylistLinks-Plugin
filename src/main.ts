@@ -4,16 +4,16 @@ import { SampleSettingTab } from './settings/settingsTab';
 
 // Remember to rename these classes and interfaces!
 
-interface MyPluginSettings {
+interface Settings {
 	mySetting: string;
 }
 
-const DEFAULT_SETTINGS: MyPluginSettings = {
+const DEFAULT_SETTINGS: Settings = {
 	mySetting: 'default'
 }
 
 export default class YouyubePlaylist extends Plugin {
-	settings: MyPluginSettings;
+	settings: Settings;
 
 	async onload() {
 		await this.loadSettings();

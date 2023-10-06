@@ -6,12 +6,12 @@ export class SampleModal extends Modal {
 	}
 
 	onOpen() {
-		const {contentEl} = this;
+		const contentEl = this.contentEl;
 		contentEl.setText('Woah!');
 	}
 
 	onClose() {
-		const {contentEl} = this;
+		const contentEl = this.contentEl;
 		contentEl.empty();
 	}
 }
