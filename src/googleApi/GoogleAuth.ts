@@ -9,11 +9,13 @@
 
 import type { IncomingMessage, ServerResponse } from 'http';
 
-import GoogleCalendarPlugin from './../GoogleCalendarPlugin';
+import YoutubePlugin from './../YoutubePlugin';
+
 import {
 	settingsAreComplete,
 	settingsAreCompleteAndLoggedIn,
-} from "../view/GoogleCalendarSettingTab";
+} from "../view/GoogleCalendarSettingTab";\
+
 import {
 	getAccessToken,
 	getExpirationTime,
@@ -31,7 +33,6 @@ const REDIRECT_URL = `http://127.0.0.1:${PORT}/callback`;
 const REDIRECT_URL_MOBILE = `https://google-auth-obsidian-redirect.vercel.app/callback`;
 const PUBLIC_CLIENT_ID = `783376961232-v90b17gr1mj1s2mnmdauvkp77u6htpke.apps.googleusercontent.com`
 
-let lastRefreshTryMoment = window.moment().subtract(100, "seconds");
 let authSession = {server: null, verifier: null, challenge: null, state:null};
 
 
@@ -72,14 +73,14 @@ export function getAccessIfValid(): string {
 }
 
 
-const refreshAccessToken = async (plugin: GoogleCalendarPlugin): Promise<string> => {
+const refreshAccessToken = async (plugin: YoutubePlugin): Promise<string> => {
 	const useCustomClient = plugin.settings.useCustomClient;
 
 	// if(lastRefreshTryMoment.diff(window.moment(), "seconds") < 60){
 	// 	return;
 	// }
 
-	let refreshBody = {
+	const refreshBody = {
 		grant_type: "refresh_token",
 		client_id: useCustomClient ? plugin.settings.googleClientId?.trim() : PUBLIC_CLIENT_ID,
 		client_secret: useCustomClient ? plugin.settings.googleClientSecret?.trim() : null,
@@ -104,7 +105,7 @@ const refreshAccessToken = async (plugin: GoogleCalendarPlugin): Promise<string>
 	return tokenData.access_token;
 }
 
-const exchangeCodeForTokenDefault = async (plugin: GoogleCalendarPlugin, state:string, verifier:string, code: string): Promise<boolean> => {
+const exchangeCodeForTokenDefault = async (plugin: YoutubePlugin, state:string, verifier:string, code: string): Promise<boolean> => {
 
 	const request = await requestUrl({
 		method: 'POST',
@@ -121,7 +122,7 @@ const exchangeCodeForTokenDefault = async (plugin: GoogleCalendarPlugin, state:s
 	return request.json;
 }
 
-const exchangeCodeForTokenCustom = async (plugin: GoogleCalendarPlugin, state: string, verifier:string, code: string, isMobile: boolean): Promise<any> => {
+const exchangeCodeForTokenCustom = async (plugin: YoutubePlugin, state: string, verifier:string, code: string, isMobile: boolean): Promise<any> => {
 	const url = `https://oauth2.googleapis.com/token`
 	+ `?grant_type=authorization_code`
 	+ `&client_id=${plugin.settings.googleClientId?.trim()}`
@@ -147,7 +148,7 @@ const exchangeCodeForTokenCustom = async (plugin: GoogleCalendarPlugin, state: s
  * 
  * @returns A valid access Token
  */
-export async function getGoogleAuthToken(plugin: GoogleCalendarPlugin): Promise<string> {
+export async function getGoogleAuthToken(plugin: YoutubePlugin): Promise<string> {
 	// Check if refresh token is set
 	if (!settingsAreCompleteAndLoggedIn()) return;
 
@@ -166,7 +167,7 @@ export async function getGoogleAuthToken(plugin: GoogleCalendarPlugin): Promise<
 
 
 export async function StartLoginGoogleMobile(): Promise<void> {
-	const plugin = GoogleCalendarPlugin.getInstance();
+	const plugin = YoutubePlugin.getInstance();
 	const useCustomClient = plugin.settings.useCustomClient;
 
 	const CLIENT_ID = useCustomClient ? plugin.settings.googleClientId : PUBLIC_CLIENT_ID;
@@ -192,13 +193,13 @@ export async function StartLoginGoogleMobile(): Promise<void> {
 }
 
 export async function FinishLoginGoogleMobile(code:string, state:string): Promise<void> {
-	const plugin = GoogleCalendarPlugin.getInstance();
+	const plugin = YoutubePlugin.getInstance();
 
 	if (state !== authSession.state) {
 		return;
 	}
 
-	const token = await exchangeCodeForTokenCustom(GoogleCalendarPlugin.getInstance(), state, authSession.verifier, code, true);
+	const token = await exchangeCodeForTokenCustom(YoutubePlugin.getInstance(), state, authSession.verifier, code, true);
 
 	if(token?.refresh_token) {
 		setRefreshToken(token.refresh_token);
@@ -222,7 +223,7 @@ export async function FinishLoginGoogleMobile(code:string, state:string): Promis
  * 
  */
 export async function LoginGoogle(): Promise<void> {
-	const plugin = GoogleCalendarPlugin.getInstance();
+	const plugin = YoutubePlugin.getInstance();
 	const useCustomClient = plugin.settings.useCustomClient;
 
 	const CLIENT_ID = useCustomClient ? plugin.settings.googleClientId : PUBLIC_CLIENT_ID;

@@ -1,3 +1,9 @@
+## 0. Roadmap
+
+- [ ] Insert remote repo by [[Adding Files from Another GitHub Repository Step-by-Step Guide]]
+- [ ] insert switch for using with or witout iframe
+
+
 ## 1. Installation 
 
 TODO 
@@ -43,3 +49,15 @@ Remember to adhere to YouTube's terms of service and the API's usage limitations
 ## 3. Usage
 
 TODO 
+
+Commands:
+    - `isert latest liked video`
+    - `open liked videos to choose from`
+        This opens a Card view from all the videos in the liked list which is in the best case lazy loading. 
+    - `open custom playlist to choose from`
+
+
+
+
+
+
