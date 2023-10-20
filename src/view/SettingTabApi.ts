@@ -1,6 +1,3 @@
-import type { Template } from "../helper/types";
-import type { YouTubeVideo } from "../helper/ytTypes";
-
 import YoutubePlugin from "src/YoutubePlugin";
 import { createNotice } from "src/helper/NoticeHelper";
 import {
@@ -150,18 +147,17 @@ export class SettingTabGoogleApi extends PluginSettingTab {
 	}
 }
 
-export function settingsAreComplete(): boolean {
-	const plugin = YoutubePlugin.getInstance();
-	if (
-		plugin.settings.useCustomClient && (
-			plugin.settings.googleClientId == "" ||
-			plugin.settings.googleClientSecret == ""
-		)
-	) {
-		createNotice("Google Calendar missing settings");
-		return false;
-	}
-	return true;
+export function settingsAreComplete(plugin: YoutubePlugin): boolean {
+    if (
+        plugin.settings.useCustomClient && (
+            plugin.settings.googleClientId == "" ||
+            plugin.settings.googleClientSecret == ""
+        )
+    ) {
+        createNotice("Google Calendar missing settings");
+        return false;
+    }
+    return true;
 }
 
 export function settingsAreCorret(): boolean {

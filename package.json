@@ -22,6 +22,8 @@
 		"typescript": "4.7.4"
 	},
 	"dependencies": {
+		"@codemirror/state": "^6.3.1",
+		"@codemirror/view": "^6.21.3",
 		"googleapis": "^127.0.0",
 		"youtube-api-v3-search": "^1.2.1",
 		"youtube-playlist": "^1.0.4"
