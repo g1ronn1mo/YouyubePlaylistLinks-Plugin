@@ -1,22 +1,32 @@
 import { Notice, Plugin } from 'obsidian';
 import { SampleSettingTab } from './settings/settingsTab';
+import type { PluginSettings } from './helper/types';
 
-interface Settings {
-	youtubePlaylist : string
-	youtubePlaylists: string[ ] 
-	apiKey: string
-}
 
-const DEFAULT_SETTINGS: Settings = {
+const DEFAULT_SETTINGS: PluginSettings = {
+	// Authentication settings
+	googleClientId: "",
+	googleClientSecret: "",
+	googleRefreshToken: "",
+	useCustomClient: true,
+	googleOAuthServer: "https://obsidian-google-calendar.vercel.app",
+	refreshInterval: 10,
+
+	// Youtube settings
 	youtubePlaylist : '',
 	youtubePlaylists: [],  
 	apiKey: '',
+	
 };
 
 
 export default class YouyubePlugin extends Plugin {
 	settings: Settings;
-	
+
+	private static instance: YouyubePlugin;
+	public static getInstance(): YouyubePlugin {
+		return YouyubePlugin.instance;
+	}
 
 	async onload() {
 		await this.loadSettings();

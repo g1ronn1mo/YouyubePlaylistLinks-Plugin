@@ -1,41 +1,30 @@
 /**
  * This file contains all custom types defined to work with typescript
- * Most types come from the Yputube API 
  */
+export interface PluginSettings {
+	// Authentication settings
+	googleClientId:string
+	googleClientSecret:string
+	googleRefreshToken:string
+	googleOAuthServer:string
+	refreshInterval:number
+	useCustomClient: boolean
 
-export interface YoutubePluginSettings {
-    // Authentication settings
-	useCustomClient: boolean;
-    googleOAuthServer: string;
-    googleClientId: string;
-    googleClientSecret: string;
-    googleRefreshToken: string;
-	
-    // Notification settings
-    useNotification: boolean;
-	showNotice: boolean;
-	
-    // Event note settings
-    eventNoteNameFormat: string;
-    optionalNotePrefix: string;
-    defaultTemplate: string;
-	defaultFolder: string;
-    autoCreateEventNotes: boolean;
-		autoCreateEventNotesMarker: string;
-        autoCreateEventKeepOpen: boolean;
-        importStartOffset: number;
-        importEndOffset: number;
-
-    // General settings
-    refreshInterval: number;
-    atAnnotationEnabled: boolean;
-    debugMode: boolean;
-    }
+	// Youtube settings
+	youtubePlaylist : string
+	youtubePlaylists: string[ ] 
+	apiKey: string,
+}
 
 
-    export interface ApiRequestData {
-        url: string;
-        method: string;
-        body?: any;
-    }
-    
+export interface ApiRequestData {
+    url: string;
+    method: string;
+    body?: any;
+}
+
+export interface Template {
+    name: string,
+    insertType: string,
+    playlistList: string[], //Names of Playlists
+}

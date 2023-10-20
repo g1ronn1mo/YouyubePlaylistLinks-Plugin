@@ -1,20 +1,16 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-
-
 /*
 	This file is used to authenticate the user to the google google cloud service 
 	and refresh the access token if needed 
 */
 
-
 import type { IncomingMessage, ServerResponse } from 'http';
 
-import YoutubePlugin from './../YoutubePlugin';
+import YoutubePlugin from '../YoutubePlugin';
 
 import {
 	settingsAreComplete,
 	settingsAreCompleteAndLoggedIn,
-} from "../view/GoogleCalendarSettingTab";\
+} from "../view/SettingTabApi";
 
 import {
 	getAccessToken,
