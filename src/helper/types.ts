@@ -28,3 +28,5 @@ export interface Template {
     insertType: string,
     playlistList: string[], //Names of Playlists
 }
+
+

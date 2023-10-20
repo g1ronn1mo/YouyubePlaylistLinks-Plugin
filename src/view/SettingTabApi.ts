@@ -14,7 +14,7 @@ import { LoginGoogle, StartLoginGoogleMobile } from "../googleApi/GoogleAuth";
 import { getRefreshToken, setAccessToken, setExpirationTime, setRefreshToken } from "../helper/LocalStorage";
 import { OAuthAlertModal } from "../modal/OAuthAlertModal";
 
-export class SettingTabApi extends PluginSettingTab {
+export class SettingTabGoogleApi extends PluginSettingTab {
 	plugin: YoutubePlugin;
 	constructor(app: App, plugin: YoutubePlugin) {
 		super(app, plugin);

@@ -1,3 +1,7 @@
+export interface IPluginApi {
+    getAllPlaylists: () => Promise<AllPlaylists> | Promise<[]>;
+}
+
 export type AllPlaylists = {
     [playlistName: string]: YouTubeVideo[];
 };
