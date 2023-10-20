@@ -1,8 +1,8 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "obsidian-youtube-plugin",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
-	"main": "src/YoutubePlugin.js",
+	"description": "A plugin for Obsidian that allows you to search and insert YouTube videos into your notes.",
+	"main": "build/main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",

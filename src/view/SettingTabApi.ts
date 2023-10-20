@@ -1,4 +1,4 @@
-import YoutubePlugin from "src/YoutubePlugin";
+import YoutubePlugin from "src/main";
 import { createNotice } from "src/helper/NoticeHelper";
 import {
 	PluginSettingTab,

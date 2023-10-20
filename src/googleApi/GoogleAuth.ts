@@ -5,7 +5,7 @@
 
 import type { IncomingMessage, ServerResponse } from 'http';
 
-import YoutubePlugin from '../YoutubePlugin';
+import YoutubePlugin from '../main';
 
 import {
 	settingsAreComplete,

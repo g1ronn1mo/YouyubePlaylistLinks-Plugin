@@ -26,7 +26,7 @@ export default class YouyubePlugin extends Plugin {
 	api: PluginApi;
 
 	async onload() {
-		console.log('loading plugin');
+		console.log('loading plugn');
 
 		this.api = new PluginApi();
 		await this.loadSettings();

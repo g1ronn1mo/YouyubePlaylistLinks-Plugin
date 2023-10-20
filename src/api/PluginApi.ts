@@ -9,7 +9,7 @@ export class PluginApi {
     public make(): IPluginApi {
 
         return {
-            getAllPlaylists: () => listAllPlaylists() ,
+            getAllPlaylists: () => listAllPlaylists( ) ,
         }
     }
 }

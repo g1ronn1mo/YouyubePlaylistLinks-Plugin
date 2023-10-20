@@ -1,5 +1,5 @@
 import { getGoogleAuthToken } from "../googleApi/GoogleAuth";
-import YoutubePlugin from "../YoutubePlugin";
+import YoutubePlugin from "../main";
 import { GoogleApiError } from "../googleApi/GoogleApiError";
 import { requestUrl } from "obsidian";
 
