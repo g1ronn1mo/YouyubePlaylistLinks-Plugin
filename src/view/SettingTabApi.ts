@@ -147,14 +147,14 @@ export class SettingTabGoogleApi extends PluginSettingTab {
 	}
 }
 
-export function settingsAreComplete(plugin: YoutubePlugin): boolean {
+export function settingsAreComplete(): boolean {
     if (
-        plugin.settings.useCustomClient && (
-            plugin.settings.googleClientId == "" ||
-            plugin.settings.googleClientSecret == ""
+        this.plugin.settings.useCustomClient && (
+            this.plugin.settings.googleClientId == "" ||
+            this.plugin.settings.googleClientSecret == ""
         )
     ) {
-        createNotice("Google Calendar missing settings");
+        createNotice("Youtube Plugin missing settings");
         return false;
     }
     return true;
@@ -178,7 +178,6 @@ export function settingsAreCorret(): boolean {
 }
 
 export function settingsAreCompleteAndLoggedIn(): boolean {
-
 	if (!getRefreshToken() || getRefreshToken() == "") {
 		createNotice(
 			"Google Calendar missing settings or not logged in"
